@@ -2,7 +2,7 @@
 This class was created to use in Android projects.
 
 # Porpouse
-Handles the drawable binding and position on View, ImageView or TextView. Also can change the icon color, alpha and size using a SelectorDrawable. 
+Handles the drawable binding and position on View, EditText, ImageView or TextView. Also can change the icon color, alpha and size using a SelectorDrawable. 
 
 
 # How to use it
