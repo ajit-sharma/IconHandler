@@ -5,7 +5,7 @@ This class was created to use in Android projects.
 Handles the drawable binding and position on View, EditText, ImageView or TextView. Also can change the icon color, alpha and size using a SelectorDrawable. 
 
 
-# How to use it
+# Usage
 
     --Setting up a icon on the ImageView.
     Icon.put(yourImageView, R.mipmap.your_icon);
