@@ -1,4 +1,4 @@
-package neat.starker.model.resources;
+package your.package.utils;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,9 +11,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import neat.starker.model.R;
-import neat.starker.model.builder.ImageBuilder;
 
 /**
  * Created by jrvansuita on 30/07/15.
@@ -41,7 +38,6 @@ public class Icon {
         new Icon(iv).icon(icon).put();
     }
 
-
     Icon(View v) {
         this.v = v;
     }
@@ -56,12 +52,10 @@ public class Icon {
         return new Icon(iv);
     }
 
-
     Icon(TextView tv, int pos) {
         this.tv = tv;
         this.pos = pos;
     }
-
 
     private TextView tv;
     private int pos;
@@ -102,7 +96,6 @@ public class Icon {
         new Icon(tv, pos).icon(icon).put();
     }
 
-
     public Icon alpha(int a) {
         this.alpha = a;
         return this;
@@ -132,11 +125,11 @@ public class Icon {
     }
 
     public Icon blue(Bitmap bitmap) {
-        return bitmap(bitmap).color(R.color.bluish);
+        return bitmap(bitmap).color(android.R.color.holo_blue_dark);
     }
 
     public Icon blue(int icon) {
-        return icon(icon).color(R.color.bluish);
+        return icon(icon).color(android.R.color.holo_blue_dark);
     }
 
     public Icon black(int icon) {
@@ -144,9 +137,8 @@ public class Icon {
     }
 
     public Icon gray(int icon) {
-        return icon(icon).color(R.color.gray_bluish);
+        return icon(icon).color(android.R.color.darker_gray);
     }
-
 
     public static void clear(TextView tv) {
         tv.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
@@ -217,7 +209,20 @@ public class Icon {
                 d = context.getResources().getDrawable(icon);
             }
 
-            return new BitmapDrawable(context.getResources(), ImageBuilder.alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
+            return new BitmapDrawable(context.getResources(), alpha(((BitmapDrawable) d).getBitmap(), putAlpha ? alpha : 255));
         }
+    }
+    
+     public static Bitmap alpha(Bitmap input, int alpha) {
+        Bitmap output = Bitmap.createBitmap(input.getWidth(), input.getHeight(), input.getConfig());
+
+        Paint transparentPaint = new Paint();
+        transparentPaint.setAlpha(alpha);
+
+        Canvas canvas = new Canvas(output);
+        canvas.drawBitmap(input, 0, 0, transparentPaint);
+
+
+        return output;
     }
 }
