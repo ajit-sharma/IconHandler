@@ -24,6 +24,10 @@ Handles the drawable binding and position on View, ImageView or TextView. Also c
     Icon.top(yourTextView).gray(R.mipmap.your_icon).put();
     
     
+    --Setting up a bitmap as a icon.
+    Icon.top(yourTextView).white(yourBitmap).put();
+    
+    
     --You can combine the usage with colors transformations.
     --You can also modify the class to create your own colors.
     Icon.on(yourImageView).black(R.mipmap.your_icon).put();
