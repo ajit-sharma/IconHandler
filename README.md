@@ -6,6 +6,9 @@ Handles the drawable binding and position on View, EditText, ImageView or TextVi
 
 
 # Usage
+Copy the Icon.java class file to your projet. 
+
+# Implamentation
 
     --Setting up a icon on the ImageView.
     Icon.put(yourImageView, R.mipmap.your_icon);
